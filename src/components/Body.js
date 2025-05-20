@@ -56,7 +56,7 @@ const Body = () => {
             <div className="p-4 flex items-center">
                 <input
                     type="text"
-                    className="border border-solid border-white w-70 h-8 rounded-md"
+                    className="text-white border border-solid border-white w-70 h-8 rounded-md"
                     value={searchText}
                     onChange={(e) => {
                         setSearchText(e.target.value);
@@ -108,6 +108,7 @@ const Body = () => {
                         onClick={() => {
                         console.log(listOfRestaurants);
                         setFilteredRestaurants(listOfRestaurants);
+                        setSearchText("");
                         }}
                     >
                         Clear Filter

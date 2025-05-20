@@ -9,6 +9,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Error from "./components/Error";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 
 //chunker
@@ -33,12 +35,14 @@ const App = () => {
     },[]);
 
     return (
-        <UserContext.Provider value={{loggedInUser : userName, setUserName}}>
-            <div className="app ml-10 mr-10">
-                <Header />
-                <Outlet />
-            </div>
-        </UserContext.Provider>
+        <Provider store={appStore}>
+            <UserContext.Provider value={{loggedInUser : userName, setUserName}}>
+                <div className="app ml-10 mr-10">
+                    <Header />
+                    <Outlet />
+                </div>
+            </UserContext.Provider>
+        </Provider>
     );
 };
 

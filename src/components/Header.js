@@ -3,6 +3,7 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -11,6 +12,10 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
   const {loggedInUser} = useContext(UserContext);
   console.log("loggedInUser",loggedInUser)
+
+  // using useSelector hook to subscribe to the store
+  const cartItems = useSelector((store)=>store.cart.items);
+  console.log("cartItems",cartItems)
 
   //if no dependency array (i.e) the useeffect calls on every component render
   // if the dependency array is empty = [] => useeffect will call on initial render(just once)
@@ -40,8 +45,8 @@ const Header = () => {
           <li className="px-4">
               <Link to="./grocery">Grocery</Link>
           </li>
-          <li className="px-4">
-              <Link to="./cart">Cart</Link>
+          <li className="px-4 font-bold">
+              <Link to="./cart">Cart- ({cartItems.length}) items</Link>
           </li>
         </ul>
         <button

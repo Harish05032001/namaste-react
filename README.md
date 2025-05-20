@@ -55,3 +55,12 @@
 # Routing Types
     -Server Side Routing  --> It makes the network call and get the data from the network, renders it to the UI and refresh the whole page (Old concept).
     -Client side Routing  --> Here we will not make any network call for data, we already have the data for the other pages. For ex, if we have the about.js page while we click that it directly displays that about us page component into UI.
+
+# Redux Toolkit
+    -Install (@reduxjs/toolkit and react-redux)
+    -build our store
+    -connect our store to our app
+    -slice (card slice)
+    -dispatch action
+    -selector
+    
